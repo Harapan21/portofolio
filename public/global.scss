@@ -101,8 +101,18 @@ body,
   height: 500px;
   transform: translate(-50%, 0);
   filter: blur(5px);
-  transition: all 2s linear;
+  transition: all 0.2s linear;
   &.loaded {
     filter: blur(0px);
+  }
+}
+
+.svg-icon {
+  display: flex;
+  justify-content: space-around;
+  max-width: 700px;
+  margin: auto;
+  svg {
+    max-height: 30px;
   }
 }

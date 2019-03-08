@@ -1,14 +1,23 @@
 import React from "react";
+import SideTabs from "./SideTabs";
+import { TabsContextConsumer } from "./context/TabsContext";
 
-export default function AsideNav() {
+export default function AsideNav({ setTabs }: any) {
+  function handleTabs(index: any) {
+    setTabs({ index });
+  }
   return (
-    <div className="aside right">
-      <ul className="sideNav">
-        <li>Contact</li>
-        <li>Portofolio</li>
-        <li>About</li>
-        <li>Home</li>
-      </ul>
-    </div>
+    <TabsContextConsumer>
+      {({ index }: any) => (
+        <div className="aside right">
+          <ul className="sideNav">
+            <SideTabs onClick={() => handleTabs(3)}>Contact</SideTabs>
+            <SideTabs onClick={() => handleTabs(2)}>Portofolio</SideTabs>
+            <SideTabs onClick={() => handleTabs(1)}>About</SideTabs>
+            <SideTabs onClick={() => handleTabs(0)}>Home</SideTabs>
+          </ul>
+        </div>
+      )}
+    </TabsContextConsumer>
   );
 }
