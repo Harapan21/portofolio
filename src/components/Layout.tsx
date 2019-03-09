@@ -8,7 +8,7 @@ import AsideNav from "./AsideNav";
 export default function Layout(props: any) {
   const { children, setTabs } = props;
   return (
-    <div className="fullwidth card" onScroll={() => console.log("c")}>
+    <div className="fullwidth card">
       <Logo />
       <Aside />
       <AsideNav setTabs={setTabs} />

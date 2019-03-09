@@ -1,23 +1,26 @@
 import React from "react";
 import SideTabs from "./SideTabs";
-import { TabsContextConsumer } from "./context/TabsContext";
 
 export default function AsideNav({ setTabs }: any) {
-  function handleTabs(index: any) {
-    setTabs({ index });
+  function handleTabs(event: any) {
+    setTabs({ index: parseInt(event.target.id) });
   }
   return (
-    <TabsContextConsumer>
-      {({ index }: any) => (
-        <div className="aside right">
-          <ul className="sideNav">
-            <SideTabs onClick={() => handleTabs(3)}>Contact</SideTabs>
-            <SideTabs onClick={() => handleTabs(2)}>Portofolio</SideTabs>
-            <SideTabs onClick={() => handleTabs(1)}>About</SideTabs>
-            <SideTabs onClick={() => handleTabs(0)}>Home</SideTabs>
-          </ul>
-        </div>
-      )}
-    </TabsContextConsumer>
+    <div className="aside right">
+      <ul className="sideNav">
+        <SideTabs id={3} onClick={handleTabs}>
+          Contact
+        </SideTabs>
+        <SideTabs id={2} onClick={handleTabs}>
+          Portofolio
+        </SideTabs>
+        <SideTabs id={1} onClick={handleTabs}>
+          About
+        </SideTabs>
+        <SideTabs id={0} onClick={handleTabs}>
+          Home
+        </SideTabs>
+      </ul>
+    </div>
   );
 }

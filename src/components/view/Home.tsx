@@ -3,8 +3,6 @@ import largeImg from "../../../public/iam.png";
 import smallImg from "../../../public/iam-small.png";
 
 export default function Home() {
-  const [isLoaded, setLoad] = useState(false);
-  console.log(isLoaded);
   function handleImage() {
     // make new Image
     const img = new Image();
@@ -16,17 +14,13 @@ export default function Home() {
     img.src = largeImg;
     img.onload = (): any => {
       _target.src = largeImg;
-      setLoad(true);
+      _target.classList.add("loaded");
     };
   }
-  useEffect(() => {
-    if (!isLoaded) {
-      handleImage();
-    }
-  }, [isLoaded]);
+  useEffect(() => handleImage());
   return (
     <>
-      <img className={`iam ${isLoaded ? "loaded" : ""}`} src={smallImg} />
+      <img className="iam" src={smallImg} />
       <div className="greeting">Welcome</div>
     </>
   );

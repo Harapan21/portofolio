@@ -2,7 +2,6 @@ import React from "react";
 import asset from "../../../public/*.svg";
 export default function About() {
   const { react, node, express, ps, ai, xd, sass } = asset;
-  console.log(asset);
   return (
     <>
       <div style={{ fontSize: 30 }}>

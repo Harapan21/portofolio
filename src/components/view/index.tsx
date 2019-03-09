@@ -22,6 +22,7 @@ export const InitialState: TabsContextInterface = {
 
 export default () => {
   const [tabs, setTabs] = useState(InitialState);
+  console.log(tabs);
   return (
     <Layout setTabs={setTabs}>
       <TabsContextProvider value={tabs}>
